@@ -7,8 +7,12 @@ export class PokemonController {
   constructor() {
     console.log(`Pokemon Controller is loaded`);
     AppState.on(`pokemon`, this.drawPokemon)
-
+    AppState.on(`activePokemon`, this.drawActivePokemon)
     this.getPokemon()
+  }
+
+  drawActivePokemon() {
+    setHTML(`activePokemon`, AppState.activePokemon.activePokemonTemplate)
   }
 
 
@@ -33,10 +37,12 @@ export class PokemonController {
   async setActivePokemon(pokemonName) {
     try {
       console.log(`Setting Active Pokemon`, pokemonName);
-      await pokemonService.setActivePokemon()
+      await pokemonService.setActivePokemon(pokemonName)
     } catch (error) {
       Pop.error(error)
       console.log(error)
     }
   }
+
 }
+
