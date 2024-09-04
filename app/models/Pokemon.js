@@ -10,7 +10,7 @@ export class Pokemon {
     <div>
     <img src="${this.img}" alt="">
       <h1>${this.name}</h1>
-      <button onclick="app.PokemonController.savePokemon('${this.name}')" class="my-2 btn btn-outline-primary">Save</button>
+      <button onclick="app.SandboxController.savePokemon()" class="my-2 btn btn-outline-primary">Save</button>
       </div>
     `
   }
