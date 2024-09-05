@@ -11,7 +11,7 @@ export class SandboxController {
   async savePokemon() {
     try {
       console.log(`saving`, AppState.activePokemon)
-      await sandboxService.setActivePokemon()
+      await sandboxService.saveActivePokemon()
     } catch (error) {
       Pop.error(error)
       console.error();
