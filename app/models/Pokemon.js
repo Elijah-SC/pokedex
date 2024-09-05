@@ -1,7 +1,7 @@
 export class Pokemon {
   constructor(data) {
     this.name = data.name
-    this.img = data.sprites.front_default
+    this.img = data.img || data.sprites.front_default
   }
 
 

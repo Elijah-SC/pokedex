@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js"
+import { Pokemon } from "../models/Pokemon.js";
 import { api } from "./AxiosService.js"
 
 class SandboxService {
@@ -7,7 +8,9 @@ class SandboxService {
     const response = await api.post('api/pokemon', pokemonToSave)
     console.log(`saved pokemon`, response.data);
 
-
+    const pokemon = new Pokemon(response.data)
+    AppState.savedPokemon.push(pokemon)
+    console.log(`pokemon saved to AppState is`, pokemon)
   }
 
 }
